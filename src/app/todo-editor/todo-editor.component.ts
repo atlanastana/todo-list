@@ -40,10 +40,11 @@ export class TodoEditorComponent implements OnInit {
 
   onAdd() {
     if (this.isEdit) {
-      let desc = this.authForm.value.desc
-      let title = this.authForm.value.title
+      let desc = this.authForm.value.desc!;
+      let title = this.authForm.value.title!;
       this.itemsService.updateItem({id: this.getId, title, desc});
     } else {
+      //@ts-ignore
       this.itemsService.addItem(this.authForm.value);
     }
 

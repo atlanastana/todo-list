@@ -1,13 +1,14 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {LocalStorageService} from "./locale-storage-jwt.service";
+import {Item} from "../models/item.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemsService {
 
-  itemsList: any = [
+  itemsList: Array<Item> = [
     {id: 1, title: 'кот', desc: 'сводить кота к ветеринару в 14:00'},
     {id: 2, title: 'стрижка', desc: 'съездить к парикмахеру после 17:00'},
     {id: 3, title: 'ужин', desc: 'сходить в супермаркет, купить продукты и приготовить ужин'},
@@ -15,19 +16,19 @@ export class ItemsService {
     {id: 5, title: 'задачи', desc: 'расписать задачи на следующий день перед сном'},
   ]
 
-  items$ = new BehaviorSubject(this.itemsList);
+  items$ = new BehaviorSubject<Array<Item>>(this.itemsList);
 
   constructor(private jwtService: LocalStorageService) {
   }
 
-  saveItems(items: any) {
+  saveItems(items: Array<Item>) {
     if (items) {
       this.itemsList = items;
       this.items$.next(this.itemsList);
     }
   }
 
-  addItem(item: any) {
+  addItem(item: Item) {
     if (this.itemsList.length < 1) {
       item.id = 1
     } else {
@@ -44,9 +45,9 @@ export class ItemsService {
     this.jwtService.setData(this.itemsList);
   }
 
-  updateItem(item: any) {
+  updateItem(item: Item) {
     let result = this.itemsList.find((item: any) => item.id === item.id);
-    this.itemsList[this.itemsList.indexOf(result)] = item;
+    this.itemsList[this.itemsList.indexOf(result!)] = item;
     this.items$.next(this.itemsList);
     this.jwtService.setData(this.itemsList);
   }

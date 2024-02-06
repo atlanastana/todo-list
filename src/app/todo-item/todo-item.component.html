@@ -1,9 +1,12 @@
-<mat-card [routerLink]="['/editor', Item.id]">
+<mat-card>
   <mat-card-header>
     <mat-card-title>{{Item.title}}</mat-card-title>
     <mat-card-subtitle>{{Item.desc}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions align="end">
     <button mat-raised-button (click)="deleteUser(Item.id)">Удалить</button>
+    <button mat-raised-button [routerLink]="['/editor', Item.id]">Редактировать</button>
   </mat-card-actions>
 </mat-card>
+
+

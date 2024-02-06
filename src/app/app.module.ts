@@ -14,6 +14,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
+import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
   declarations: [
@@ -22,18 +23,19 @@ import {MatInputModule} from "@angular/material/input";
     TodoItemComponent,
     TodoEditorComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatInputModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatChipsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
