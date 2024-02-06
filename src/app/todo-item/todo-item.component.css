@@ -1,0 +1,5 @@
+.todo__item-box {
+  display: flex;
+  justify-content: left;
+  gap: 30px;
+}

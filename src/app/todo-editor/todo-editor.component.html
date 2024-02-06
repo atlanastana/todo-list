@@ -1,0 +1,14 @@
+<div class="form__box">
+  <form class="example-form" [formGroup]="authForm">
+    <h1>{{title}}</h1>
+    <mat-form-field class="example-full-width">
+      <mat-label>Заголовок</mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Описание</mat-label>
+      <textarea matInput formControlName="desc"></textarea>
+    </mat-form-field>
+    <button type="submit" mat-raised-button (click)="onAdd()">{{btn}}</button>
+  </form>
+</div>

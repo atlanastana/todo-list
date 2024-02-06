@@ -1,0 +1,1 @@
+<app-todo-item *ngFor="let item of items$ | async" [Item]="item" (toggle)="removeUser($event)"></app-todo-item>
