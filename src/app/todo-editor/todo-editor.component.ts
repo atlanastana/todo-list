@@ -18,7 +18,6 @@ export class TodoEditorComponent implements OnInit {
   title = 'Создание новой задачи';
   priorities = this.itemsService.priorities;
 
-
   constructor(private itemsService: ItemsService,
               private router: Router,
               private readonly route: ActivatedRoute,) {

@@ -10,11 +10,11 @@
       <textarea matInput formControlName="desc"></textarea>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-    <mat-select formControlName="priority">
-      <mat-option *ngFor="let item of priorities" [value]="item">
-        {{item}}
-      </mat-option>
-    </mat-select>
+      <mat-select formControlName="priority">
+        <mat-option *ngFor="let item of priorities" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
     <button type="submit" mat-raised-button (click)="onAdd()">{{btn}}</button>
   </form>

@@ -1,15 +1,17 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
-  name: 'tableFilter'
+  name: 'priorityFilter'
 })
 export class PriorityFilterPipe implements PipeTransform {
 
-  transform(list: any[], filters: Object) {
-    const keys = Object.keys(filters).filter(key => filters[key]);
-    const filterUser = user => keys.every(key => user[key] === filters[key]);
-
-    return keys.length ? list.filter(filterUser) : list;
+  transform(list: any, filters: any) {
+    if (filters.priority == 'все') {
+      return list
+    }
+    const result = list.filter((item: any) => item.priority == filters.priority)
+    return result ? result : list
   }
 
 }
+

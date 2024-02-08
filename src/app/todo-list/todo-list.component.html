@@ -1,1 +1,20 @@
-<app-todo-item *ngFor="let item of items$ | async" [Item]="item" (toggle)="removeUser($event)"></app-todo-item>
+<form class="example-form" [formGroup]="priorityForm">
+  <mat-form-field class="example-full-width">
+    <mat-select formControlName="priority">
+      <mat-option [value]="priority">
+        {{priority}}
+      </mat-option>
+      <mat-option *ngFor="let item of priorities" [value]="item">
+        {{item}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<app-todo-item *ngFor="let item of items$ | async | priorityFilter: priorityForm.value"
+               [Item]="item"
+               (toggle)="removeUser($event)">
+</app-todo-item>
+
+
+

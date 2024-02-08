@@ -3,6 +3,7 @@ import {ItemsService} from "../core/items.service";
 import {LocalStorageService} from "../core/locale-storage-jwt.service";
 import {Item} from "../models/item.model";
 import {BehaviorSubject} from "rxjs";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-todo-list',
@@ -10,11 +11,16 @@ import {BehaviorSubject} from "rxjs";
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
-
+  priorityForm
   items$ = inject(ItemsService).items$;
   priorities = this.itemsService.priorities
+  priority: string = 'все';
+
 
   constructor(private itemsService: ItemsService, private localStorage: LocalStorageService) {
+    this.priorityForm = new FormGroup({
+      priority: new FormControl(this.priority, {validators: [Validators.required], nonNullable: true,}),
+    });
   }
 
   ngOnInit() {
