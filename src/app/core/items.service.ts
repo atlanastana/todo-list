@@ -8,6 +8,8 @@ import {Item} from "../models/item.model";
 })
 export class ItemsService {
 
+  priorities = ['по возможности', 'cильно важно', 'важно'];
+
   itemsList: Array<Item> = [
     {id: 1, title: 'кот', desc: 'сводить кота к ветеринару в 14:00', priority: 'важно'},
     {id: 2, title: 'стрижка', desc: 'съездить к парикмахеру после 17:00', priority: 'cильно важно'},

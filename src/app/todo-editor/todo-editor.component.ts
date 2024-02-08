@@ -16,7 +16,7 @@ export class TodoEditorComponent implements OnInit {
   btn = 'Создать';
   currentItem = {};
   title = 'Создание новой задачи';
-  priorities = ['по возможности', 'cильно важно', 'важно'];
+  priorities = this.itemsService.priorities;
 
 
   constructor(private itemsService: ItemsService,

@@ -12,6 +12,7 @@ import {BehaviorSubject} from "rxjs";
 export class TodoListComponent implements OnInit {
 
   items$ = inject(ItemsService).items$;
+  priorities = this.itemsService.priorities
 
   constructor(private itemsService: ItemsService, private localStorage: LocalStorageService) {
   }
