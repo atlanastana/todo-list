@@ -9,11 +9,11 @@ import {Item} from "../models/item.model";
 export class ItemsService {
 
   itemsList: Array<Item> = [
-    {id: 1, title: 'кот', desc: 'сводить кота к ветеринару в 14:00'},
-    {id: 2, title: 'стрижка', desc: 'съездить к парикмахеру после 17:00'},
-    {id: 3, title: 'ужин', desc: 'сходить в супермаркет, купить продукты и приготовить ужин'},
-    {id: 4, title: 'тренировка', desc: 'упражнения для укрепления позвоночника и легкая пробежка'},
-    {id: 5, title: 'задачи', desc: 'расписать задачи на следующий день перед сном'},
+    {id: 1, title: 'кот', desc: 'сводить кота к ветеринару в 14:00', priority: 'важно'},
+    {id: 2, title: 'стрижка', desc: 'съездить к парикмахеру после 17:00', priority: 'cильно важно'},
+    {id: 3, title: 'ужин', desc: 'сходить в супермаркет, купить продукты и приготовить ужин', priority: 'важно'},
+    {id: 4, title: 'тренировка', desc: 'упражнения для укрепления позвоночника', priority: 'по возможности'},
+    {id: 5, title: 'задачи', desc: 'расписать задачи на следующий день перед сном', priority: 'по возможности'},
   ]
 
   items$ = new BehaviorSubject<Array<Item>>(this.itemsList);
@@ -45,9 +45,9 @@ export class ItemsService {
     this.jwtService.setData(this.itemsList);
   }
 
-  updateItem(item: Item) {
-    let result = this.itemsList.find((item: any) => item.id === item.id);
-    this.itemsList[this.itemsList.indexOf(result!)] = item;
+  updateItem(itemh: Item) {
+    let result = this.itemsList.find((item: any) => item.id == itemh.id);
+    this.itemsList[this.itemsList.indexOf(result!)] = itemh;
     this.items$.next(this.itemsList);
     this.jwtService.setData(this.itemsList);
   }

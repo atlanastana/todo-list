@@ -9,6 +9,11 @@
       <mat-label>Описание</mat-label>
       <textarea matInput formControlName="desc"></textarea>
     </mat-form-field>
+    <select formControlName="priority">
+      <option *ngFor="let item of priorities" [ngValue]="item">
+        {{item}}
+      </option>
+    </select>
     <button type="submit" mat-raised-button (click)="onAdd()">{{btn}}</button>
   </form>
 </div>

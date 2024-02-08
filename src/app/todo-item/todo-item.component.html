@@ -4,8 +4,11 @@
     <mat-card-subtitle>{{Item.desc}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions align="end">
-    <button mat-raised-button (click)="deleteUser(Item.id)">Удалить</button>
-    <button mat-raised-button [routerLink]="['/editor', Item.id]">Редактировать</button>
+    <mat-card-subtitle>Приоритет: {{Item.priority}}</mat-card-subtitle>
+    <div>
+      <button mat-raised-button (click)="deleteUser(Item.id)">Удалить</button>
+      <button mat-raised-button [routerLink]="['/editor', Item.id]">Редактировать</button>
+    </div>
   </mat-card-actions>
 </mat-card>
 

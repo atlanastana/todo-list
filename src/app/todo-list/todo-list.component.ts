@@ -1,6 +1,8 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {ItemsService} from "../core/items.service";
 import {LocalStorageService} from "../core/locale-storage-jwt.service";
+import {Item} from "../models/item.model";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-todo-list',

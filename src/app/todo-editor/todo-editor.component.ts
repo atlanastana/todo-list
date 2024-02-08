@@ -16,6 +16,7 @@ export class TodoEditorComponent implements OnInit {
   btn = 'Создать';
   currentItem = {};
   title = 'Создание новой задачи';
+  priorities = ['по возможности', 'cильно важно', 'важно'];
 
 
   constructor(private itemsService: ItemsService,
@@ -24,6 +25,7 @@ export class TodoEditorComponent implements OnInit {
     this.authForm = new FormGroup({
       title: new FormControl("", {validators: [Validators.required], nonNullable: true,}),
       desc: new FormControl("", {validators: [Validators.required], nonNullable: true,}),
+      priority: new FormControl("", {validators: [Validators.required], nonNullable: true,}),
     });
   }
 
@@ -42,12 +44,12 @@ export class TodoEditorComponent implements OnInit {
     if (this.isEdit) {
       let desc = this.authForm.value.desc!;
       let title = this.authForm.value.title!;
-      this.itemsService.updateItem({id: this.getId, title, desc});
+      let priority = this.authForm.value.priority!;
+      this.itemsService.updateItem({id: this.getId, title, desc, priority});
     } else {
       //@ts-ignore
       this.itemsService.addItem(this.authForm.value);
     }
-
     this.router.navigate(["/"]);
   }
 
